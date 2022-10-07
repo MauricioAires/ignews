@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import { stripe } from '../services/stripe'
 import { Home, HomeProps } from '../templates/Home'
 
@@ -14,7 +14,21 @@ export default function HomePage(props: HomeProps) {
   return <Home {...props} />
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+/**
+ *
+ * SSG - STATIC SITE GENERATION
+ *
+ * Após a geração do arquivo é gerado o static do mesmo
+ * em forma da cache
+ *
+ * ---
+ *
+ * CLIENTE SIDE
+ * SERVER SIDE
+ * STATIC SITE GENERATION
+ *
+ */
+export const getStaticProps: GetStaticProps = async () => {
   const price = await stripe.prices.retrieve('price_1LpkHEAd7ieJidZKE2hfDDMV')
 
   const product = {
@@ -26,6 +40,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   }
 
   return {
+    revalidate: 60 * 60 * 24, // 24 horas =>  quanto tempo em segundos para gerar um novo estatico
     props: {
       product
     }
