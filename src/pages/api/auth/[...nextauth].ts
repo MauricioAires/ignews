@@ -1,6 +1,9 @@
+import { query as q } from 'faunadb'
 import NextAuth from 'next-auth/next'
 import GitHubProvider from 'next-auth/providers/github'
 import GoogleProvider from 'next-auth/providers/google'
+
+import { fauna } from '../../../services/fauna'
 
 export default NextAuth({
   providers: [
@@ -15,7 +18,35 @@ export default NextAuth({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET
     })
-  ]
+  ],
+  callbacks: {
+    async signIn({ user }) {
+      const { email } = user
+
+      try {
+        await fauna.query(
+          q.If(
+            q.Not(
+              q.Exists(q.Match(q.Index('user_by_email'), q.Casefold(email)))
+            ),
+            q.Create(q.Collection('users'), { data: { email } }),
+            q.Get(q.Match(q.Index('user_by_email'), q.Casefold(email)))
+          )
+        )
+
+        return true
+      } catch {
+        return '/'
+      }
+
+      /**
+       * @description Quano o usuário não tem permissão para realizar
+       * o login é possivel colocar para onde ele deve ser redirecionado
+       *
+       * poseria ser uma pagina de /unauthorized
+       */
+    }
+  }
 })
 
 // FaunaDB - HTTP
