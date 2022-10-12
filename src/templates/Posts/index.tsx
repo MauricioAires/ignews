@@ -23,11 +23,13 @@ export function Posts({ posts }: PostsTemplateProps) {
       <main className={S.container}>
         <div className={S.posts}>
           {posts.map((post) => (
-            <a key={post.slug} href="#">
-              <time>{post.updatedAt}</time>
-              <strong>{post.title}</strong>
-              <p>{post.abstract}</p>
-            </a>
+            <Link href={`/posts/${post.slug}`}>
+              <a key={post.slug} href="#">
+                <time>{post.updatedAt}</time>
+                <strong>{post.title}</strong>
+                <p>{post.abstract}</p>
+              </a>
+            </Link>
           ))}
         </div>
       </main>
