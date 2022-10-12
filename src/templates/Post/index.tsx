@@ -16,7 +16,7 @@ export function PostTemplate({ post }: PostTemplateProps) {
   return (
     <>
       <Head>
-        <title> {`${post.title} | Ignews`}</title>
+        <title> {post.title} </title>
       </Head>
       <main className={S.container}>
         <article className={S.post}>
