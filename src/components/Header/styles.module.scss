@@ -3,6 +3,14 @@
   border-bottom: 1px solid var(--gray-800);
 }
 
+.imageBox {
+  width: 110px;
+  height: 31px;
+  position: relative;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
 .headerContent {
   max-width: 1120px;
   height: 5rem;

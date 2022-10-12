@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ActiveLink } from '../ActiveLink'
 
 import { SignInButton } from '../SignInButton'
@@ -9,7 +10,14 @@ export function Header() {
     <header className={S.headerContainer}>
       <div className={S.headerContent}>
         <Link href="/">
-          <img src="/images/logo.svg" alt="Uma menina segurando um notebook" />
+          <div className={S.imageBox}>
+            <Image
+              layout="fill"
+              objectFit="cover"
+              src="/images/logo.svg"
+              alt="Uma menina segurando um notebook"
+            />
+          </div>
         </Link>
 
         <nav>
