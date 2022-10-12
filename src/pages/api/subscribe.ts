@@ -13,7 +13,7 @@ type User = {
   }
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const subscribe = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     /**
      * @description obter informações do cookies da aplicação
@@ -68,3 +68,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(405).end('Method not allowed')
   }
 }
+
+export default subscribe
