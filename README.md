@@ -1,5 +1,5 @@
+---
 
-___
 <p align="center">
   <a href="#dart-sobre">Sobre</a> &#xa0; | &#xa0; 
   <a href="#rocket-tecnologias">Tecnologias</a> &#xa0; | &#xa0;
@@ -10,7 +10,7 @@ ___
 
 <br>
 
-### Sobre 
+### Sobre
 
 O projeto ig.news é um blog onde os usuários podem ter acesso ao conteúdo de cada postagem de acordo com o status de sua assinatura.<br>
 
@@ -19,7 +19,6 @@ O blog possui um sistema de compra integrado com o STRIPE, e após o usuário re
 Essa é uma aplicação Serverless, ou seja, todo o processo que dependeria de um backend foi integrado dentro do front e seguindo o padrão da JAMStack.
 <br>
 As postagens são feitas pelo painel do Prismic CMS e integradas diretamente pelo front.
-
 
 ### Tecnologias
 
@@ -51,6 +50,7 @@ $ yarn install
 $ yarn dev
 
 # The server will initialize in the <http://localhost:3000>
+
+# comando para ouvir eventos dos stripe
+$ stripe listen --forward-to localhost:3000/api/webhooks
 ```
-
-
