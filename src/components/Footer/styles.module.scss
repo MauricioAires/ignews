@@ -1,0 +1,61 @@
+.wrapper {
+  background: var(--gray-900);
+  height: 100px;
+  margin-top: 100px;
+
+  .content {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    .imageBox {
+      width: 90px;
+      height: 26px;
+      position: relative;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .contacts {
+      padding: 2rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.6rem;
+        color: var(--gray-300);
+
+        svg {
+          transition: color 0.2s;
+
+          &:hover {
+            color: var(--white);
+          }
+        }
+      }
+    }
+
+    hr {
+      border: none;
+      height: 3px;
+      background: var(--gray-700);
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      padding: 2rem 0;
+      color: var(--gray-300);
+      display: flex;
+      justify-content: space-between;
+
+      div {
+        display: flex;
+        gap: 1rem;
+      }
+    }
+  }
+}

@@ -25,7 +25,7 @@ export function PostTemplate({ post, previewMode = false }: PostTemplateProps) {
     if (data?.activeSubscription) {
       router.push(`/posts/${post.slug}`)
     }
-  }, [data, post, router])
+  }, [data])
 
   return (
     <>
