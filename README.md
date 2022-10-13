@@ -1,3 +1,7 @@
+<center>
+<img src=".github/logo.svg">
+</center>
+
 ---
 
 <p align="center">
