@@ -2,21 +2,25 @@ import { AppProps } from 'next/app'
 import { SessionProvider as NextAuthProvider } from 'next-auth/react'
 import { DefaultSession } from 'next-auth'
 
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
-
 import '../styles/global.scss'
+import { useRouter } from 'next/router'
+import { BaseTemplate } from '../templates/Base'
 
 type PagePropsLocal = {
   session: DefaultSession
 }
 
 function MyApp({ Component, pageProps }: AppProps<PagePropsLocal>) {
+  const { asPath } = useRouter()
   return (
     <NextAuthProvider session={pageProps.session}>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
+      {asPath === '/login' ? (
+        <Component {...pageProps} />
+      ) : (
+        <BaseTemplate>
+          <Component {...pageProps} />
+        </BaseTemplate>
+      )}
     </NextAuthProvider>
   )
 }

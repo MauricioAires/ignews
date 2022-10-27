@@ -48,11 +48,14 @@ export default NextAuth({
           )
         )
 
+        console.log({ session })
+
         return {
           ...session,
           activeSubscription: userActiveSubscription
         }
       } catch (error) {
+        console.log({ error })
         return {
           ...session,
           activeSubscription: null
@@ -62,6 +65,7 @@ export default NextAuth({
     async signIn({ user }) {
       const { email } = user
 
+      console.log({ user })
       try {
         await fauna.query(
           q.If(
@@ -73,7 +77,7 @@ export default NextAuth({
           )
         )
 
-        return true
+        return '/'
       } catch {
         return '/'
       }
