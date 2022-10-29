@@ -57,4 +57,16 @@ $ yarn dev
 
 # comando para ouvir eventos dos stripe
 $ stripe listen --forward-to localhost:3000/api/webhooks
+
+# configur GOOGLE_CLIENT_ID
+https://console.cloud.google.com/
+
+# configurar GITHUB_CLIENT_ID
+https://github.com/settings/developers
+
+# configurar FAUNADB_KEY
+https://dashboard.fauna.com/keys/@db/global/seu-projeto
+
+# configurar STRIPE_API_KEY
+https://dashboard.stripe.com/test/apikeys
 ```
