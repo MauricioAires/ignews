@@ -1,6 +1,16 @@
 .headerContainer {
   height: 5rem;
   border-bottom: 1px solid var(--gray-800);
+  z-index: 60;
+  box-sizing: border-box;
+
+  &.menuActive {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--gray-900);
+  }
 }
 
 .imageBox {
@@ -20,9 +30,17 @@
   display: flex;
   align-items: center;
 
+  @media (max-width: 992px) {
+    justify-content: space-between;
+  }
+
   nav {
     margin-left: 5rem;
     height: 5rem;
+
+    @media (max-width: 992px) {
+      display: none;
+    }
 
     a {
       display: inline-block;
@@ -61,5 +79,91 @@
 
   > button {
     margin-left: auto;
+
+    @media (max-width: 992px) {
+      display: none;
+    }
   }
+}
+
+.menuButton {
+  @media (min-width: 992px) {
+    display: none;
+  }
+}
+
+.menuFull {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: var(--gray-900);
+
+  position: fixed;
+
+  pointer-events: none;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  z-index: 60;
+  top: 5rem;
+
+  opacity: 1;
+  transition: 0.4s ease-in-out 0s;
+  transform: translateY(0);
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: var(--gray-900);
+    z-index: 50;
+
+    a {
+      display: inline-block;
+      position: relative;
+      padding: 0 0.5rem;
+      height: 5rem;
+      line-height: 5rem;
+      color: var(--gray-300);
+      width: 100%;
+      transition: color 0.2s;
+      text-align: center;
+
+      &:hover {
+        color: var(--white);
+        background: var(--gray-850);
+      }
+
+      &.active {
+        color: var(--white);
+        font-weight: bold;
+      }
+
+      &.active::after {
+        content: '';
+        height: 3px;
+        border-radius: 3px 3px 0 0;
+        width: 100%;
+        position: absolute;
+        bottom: 1.5px;
+        left: 0;
+        background: var(--yellow-500);
+      }
+    }
+  }
+
+  // display: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menuOpen {
+  opacity: 1;
+  transform: translateY(3rem);
+  pointer-events: all;
+  // display: flex;
 }
