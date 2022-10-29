@@ -77,7 +77,7 @@ export default NextAuth({
           )
         )
 
-        return '/'
+        return true
       } catch {
         return '/'
       }
