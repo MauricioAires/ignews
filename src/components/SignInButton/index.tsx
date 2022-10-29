@@ -1,22 +1,33 @@
-import { FaGithub } from 'react-icons/fa'
+import Link from 'next/link'
+import { signOut, useSession } from 'next-auth/react'
+
 import { FiX } from 'react-icons/fi'
-import { signIn, signOut, useSession } from 'next-auth/react'
+import { GoVerified } from 'react-icons/go'
+import { FiLogIn } from 'react-icons/fi'
 
 import S from './styles.module.scss'
-import { useEffect } from 'react'
 
 export function SignInButton() {
   const { data } = useSession()
 
   return data ? (
     <button className={S.signInButton} onClick={() => signOut()}>
-      <FaGithub color="#04d361" />
+      {data.activeSubscription ? (
+        <GoVerified color="#61dafb" />
+      ) : (
+        <GoVerified color="#e1e1e6" />
+      )}
+
       {data.user.name}
       <FiX className={S.closeIcon} />
     </button>
   ) : (
-    <button className={S.signInButton} onClick={() => signIn('google')}>
-      <FaGithub color="#eba417" /> Sing in wiht Github
+    <button className={S.signInButton}>
+      <Link href="/login">
+        <a>
+          Log In <FiLogIn />
+        </a>
+      </Link>
     </button>
   )
 }
