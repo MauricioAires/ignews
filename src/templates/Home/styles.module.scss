@@ -9,9 +9,19 @@
   justify-content: space-between;
 }
 
-.hero {
-  max-width: 600px;
+.banner {
+  @media (max-width: 992px) {
+    display: none;
+  }
+}
 
+.hero {
+  @media (min-width: 992px) {
+    max-width: 600px;
+  }
+
+  max-width: 90%;
+  margin: 0 auto;
   > span {
     font-size: 1.5rem;
     font-weight: bold;
@@ -22,6 +32,11 @@
     line-height: 4.5rem;
     font-weight: 900;
     margin-top: 2.5rem;
+
+    @media (max-width: 620px) {
+      font-size: 2.5rem;
+      line-height: 2.5rem;
+    }
 
     > span {
       color: var(--cyan-500);

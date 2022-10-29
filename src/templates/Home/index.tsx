@@ -31,12 +31,15 @@ export function Home({ product }: HomeProps) {
           </p>
           <SubscribeButton priceId={product.priceId} />
         </section>
-        <Image
-          width="336"
-          height="521"
-          src="/images/avatar.svg"
-          alt="Girl coding"
-        />
+
+        <div className={S.banner}>
+          <Image
+            width="336"
+            height="521"
+            src="/images/avatar.svg"
+            alt="Girl coding"
+          />
+        </div>
       </main>
     </>
   )
