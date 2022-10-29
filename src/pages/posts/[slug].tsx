@@ -16,16 +16,16 @@ export const getServerSideProps: GetServerSideProps = async ({
     req
   })
 
+  const { slug } = params
+
   if (!session?.activeSubscription) {
     return {
       redirect: {
-        destination: '/',
+        destination: `/posts/preview/${slug}`,
         permanent: false
       }
     }
   }
-
-  const { slug } = params
 
   const prismic = getPrismicClient(req)
 
