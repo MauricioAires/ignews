@@ -18,7 +18,7 @@ export function Footer() {
                 layout="fill"
                 objectFit="cover"
                 src="/images/logo.svg"
-                alt="Uma menina segurando um notebook"
+                alt="Ignews logo"
               />
             </div>
           </Link>
