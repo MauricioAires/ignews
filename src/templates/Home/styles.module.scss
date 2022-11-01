@@ -58,3 +58,29 @@
     margin-top: 2.5rem;
   }
 }
+
+.tip {
+  p {
+    font-size: 0.7rem;
+    line-height: 1.2rem;
+    font-weight: 100;
+
+    span {
+      color: var(--white);
+      font-weight: 100;
+      margin-left: 4px;
+    }
+
+    &:hover {
+      time,
+      span {
+        text-decoration: underline;
+        color: var(--cyan-500);
+      }
+    }
+
+    b {
+      color: var(--yellow-500);
+    }
+  }
+}
