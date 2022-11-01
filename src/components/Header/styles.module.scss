@@ -93,6 +93,9 @@
 }
 
 .menuFull {
+  @media (min-width: 992px) {
+    display: none;
+  }
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -112,7 +115,7 @@
 
   opacity: 1;
   transition: 0.4s ease-in-out 0s;
-  transform: translateY(0);
+  transform: translateY(3rem);
 
   nav {
     display: flex;
@@ -163,7 +166,7 @@
 
 .menuOpen {
   opacity: 1;
-  transform: translateY(3rem);
+  transform: translateY(0rem);
   pointer-events: all;
   // display: flex;
 }
