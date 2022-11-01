@@ -18,6 +18,11 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
           <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+          <meta
+            name="description"
+            content="Artigos sobre Tecnologia para Programadores,confira nossos artigos exclusivos sobre os mais variados temas
+              sobre Tecnologia e Engenharia da Informação."
+          />
         </Head>
         <body>
           {/* Todo o conteúdo da aplicação setá reendirirado aqui assim como o id="root" */}
