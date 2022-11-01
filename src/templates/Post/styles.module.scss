@@ -4,6 +4,31 @@
   padding: 0 2rem;
 }
 
+.buttonBack {
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  border: none;
+
+  padding: 8px 8px 8px 0;
+  border-radius: 100%;
+
+  color: var(--white);
+
+  &:hover {
+    svg {
+      margin-left: -5px;
+      transition: all 0.2s ease-in-out;
+      filter: brightness(1);
+    }
+  }
+
+  svg {
+    filter: brightness(0.6);
+    transition: all 0.2s ease-in-out;
+  }
+}
+
 .post {
   max-width: 720px;
   margin: 5rem auto 0;
