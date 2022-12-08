@@ -1,21 +1,18 @@
-import Link from 'next/link'
 import Image from 'next/image'
-import { ActiveLink } from '../ActiveLink'
+import Link from 'next/link'
 import { AiOutlineMenu } from 'react-icons/ai'
+import { ActiveLink } from '../ActiveLink'
 
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 import { SignInButton } from '../SignInButton'
 import S from './styles.module.scss'
-import { FcCloseUpMode } from 'react-icons/fc'
-import { RiCloseFill } from 'react-icons/ri'
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 
 import { signOut, useSession } from 'next-auth/react'
-import { GoVerified } from 'react-icons/go'
 
 export function Header() {
   const [openModal, setOpenModal] = useState(false)
-  const router = useRouter()
+  const { events } = useRouter()
   const { data } = useSession()
 
   useEffect(() => {
@@ -23,10 +20,10 @@ export function Header() {
       setOpenModal(false)
     }
 
-    router.events.on('routeChangeComplete', onRouteChangeComplete)
+    events.on('routeChangeComplete', onRouteChangeComplete)
 
     return () => {
-      router.events.off('routeChangeComplete', onRouteChangeComplete)
+      events.off('routeChangeComplete', onRouteChangeComplete)
     }
   }, [])
   return (
