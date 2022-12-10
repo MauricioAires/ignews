@@ -38,7 +38,7 @@ export function Home({ product }: HomeProps) {
             <span>for {product.amount} month</span>
           </p>
           <div className={S.tip}>
-            <SubscribeButton priceId={product.priceId} />
+            <SubscribeButton />
             <p aria-readonly>
               <b>DICA:</b> preencha o formulário com o número do cartão (CVV)
               <span>4242 4242 4242 4242</span>, data de validade
