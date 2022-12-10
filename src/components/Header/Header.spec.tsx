@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { Header } from '.'
 
 jest.mock('next/router', () => {
@@ -22,5 +22,7 @@ jest.mock('next-auth/react', () => ({
 describe('<Header />', () => {
   it('should render correctly', () => {
     render(<Header />)
+
+    screen.logTestingPlaygroundURL()
   })
 })
