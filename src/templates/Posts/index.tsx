@@ -23,7 +23,7 @@ export function Posts({ posts }: PostsTemplateProps) {
       <main className={S.container}>
         <div className={S.posts}>
           {posts.map((post) => (
-            <Link key={post.slug} href={`/posts/${post.slug}`}>
+            <Link key={post.slug} passHref href={`/posts/${post.slug}`}>
               <a href="#">
                 <time>{post.updatedAt}</time>
                 <strong>{post.title}</strong>
